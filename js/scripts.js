@@ -6,20 +6,26 @@ function gatherAndParse() {
   let number = parseInt($('#user_factorial').val(), 10);
   return number;
 }
-//Take user inputted number, make sure it isn't negative or a non-integer, then use a for loop to create an array of all the numbers to be used in the factorial calculation
-//and then reduce the array they are pushed to by multiplying them thus calculating the factorial.
+
+//Define a recursive function to find an integers factorial.
 function factorial(numberToMakeFactorial) {
-  if (numberToMakeFactorial < 0 || Number.isInteger(numberToMakeFactorial) === false) {
+  if (numberToMakeFactorial === 1) return 1;
+   return numberToMakeFactorial * factorial(numberToMakeFactorial -1);
+   console.log(numberToMakeFactorial);
+}
+
+//Define a function to check whether the user's inputted number is negative, 0/1, or actually a number which we find
+//the factorial of.
+function checkNumbers(numberToCheck) {
+  if (numberToCheck < 0 || Number.isInteger(numberToCheck) === false) {
     $('#error').text(errorMessage);
+  } else if (numberToCheck === 1 || numberToCheck === 0) {
+    $('#error').empty();
+    let output = 1;
+    $('#output_here').text(output)
   } else {
     $('#error').empty();
-    let factorialArray = []
-    for (let currentNum = 1 ; currentNum <= numberToMakeFactorial; currentNum += 1) {
-      factorialArray.push(currentNum);
-    }
-    let output = factorialArray.reduce(function(total, currentNum) {
-      return total * currentNum;
-    },)
+    let output = factorial(numberToCheck);
     $('#output_here').text(output);
   }
 }
@@ -29,6 +35,7 @@ $(document).ready(function() {
   $('#user_input').submit(function(event) {
     event.preventDefault();
     let userFactorial = gatherAndParse();
-    factorial(userFactorial);
+    checkNumbers(userFactorial);
+    console.log(factorial(5));
   });
 });
