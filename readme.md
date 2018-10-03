@@ -6,7 +6,7 @@
 
 ## Description
 
-_An application that takes a number provided by the user and calculates that numbers factorial._
+_An application that takes a number provided by the user and calculates that numbers factorial using a recursive function_
 
 ## Setup/Installation Requirements
 
