@@ -36,6 +36,5 @@ $(document).ready(function() {
     event.preventDefault();
     let userFactorial = gatherAndParse();
     checkNumbers(userFactorial);
-    console.log(factorial(5));
   });
 });
