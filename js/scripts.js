@@ -1,14 +1,13 @@
+//Back-end Logic
+//Assign the error message to a variable so it's easier to use.
+errorMessage = 'Please make sure that you enter an integer (whole number) that is not negative'
 //Take user input and parse it.
 function gatherAndParse() {
   let number = parseInt($('#user_factorial').val(), 10);
   return number;
 }
-
-errorMessage = 'Please make sure that you enter an integer (whole number) that is not negative'
-
-//Check to make sure that input is not a negative number and is an integer. If either are true, display error message.
-
-//Take user inputted number and create an array of the number and each integer below it, then reduce this array by multiplying all the numbers.
+//Take user inputted number, make sure it isn't negative or a non-integer, then use a for loop to create an array of all the numbers to be used in the factorial calculation
+//and then reduce the array they are pushed to by multiplying them thus calculating the factorial.
 function factorial(numberToMakeFactorial) {
   if (numberToMakeFactorial < 0 || Number.isInteger(numberToMakeFactorial) === false) {
     $('#error').append(errorMessage);
@@ -24,16 +23,12 @@ function factorial(numberToMakeFactorial) {
     $('#output_here').text(output);
   }
 }
-//take number and add the number and all numbers after itself into an array.
-
 
 //Front-end Logic
 $(document).ready(function() {
   $('#user_input').submit(function(event) {
     event.preventDefault();
     let userFactorial = gatherAndParse();
-    let output = factorial(userFactorial);
-    console.log(output);
-
+    factorial(userFactorial);
   });
 });
