@@ -10,7 +10,7 @@ function gatherAndParse() {
 //and then reduce the array they are pushed to by multiplying them thus calculating the factorial.
 function factorial(numberToMakeFactorial) {
   if (numberToMakeFactorial < 0 || Number.isInteger(numberToMakeFactorial) === false) {
-    $('#error').append(errorMessage);
+    $('#error').text(errorMessage);
   } else {
     $('#error').empty();
     let factorialArray = []
