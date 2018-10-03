@@ -14,7 +14,7 @@ function factorial(numberToMakeFactorial) {
   } else {
     $('#error').empty();
     let factorialArray = []
-    for (let currentNum = 1 ; currentNum <= numberToMakeFactorial; currentNum += 1) {
+    for (let currentNum = 1; currentNum <= numberToMakeFactorial; currentNum += 1) {
       factorialArray.push(currentNum);
     }
     let output = factorialArray.reduce(function(total, currentNum) {
